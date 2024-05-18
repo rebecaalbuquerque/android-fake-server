@@ -5,7 +5,10 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 
 object FakeServer {
+
     private val responses = mutableMapOf<String, String>()
+    const val HEADER_DELAY = "X-Fake-Server-Delay"
+    const val HEADER_STATUS_CODE = "X-Fake-Server-Status-Code"
 
     fun initialize(context: Context) {
         val assetManager = context.assets
@@ -21,12 +24,13 @@ object FakeServer {
         }
     }
 
+    fun registerResponse(endpoint: String, jsonResponse: String) {
+        responses[endpoint] = jsonResponse
+    }
+
     fun getResponse(url: String): String? {
-        val regex = "https?://[^/]+(/.*)?(/fake-server/[^?]*)(\\?.*)?".toRegex()
-        val matchResult = regex.find(url)
-
+        val matchResult = "https?://[^/]+(/.*)?(/fake-server/[^?]*)(\\?.*)?".toRegex().find(url)
         val path = matchResult?.groups?.get(2)?.value
-
         return responses[path]
     }
 }

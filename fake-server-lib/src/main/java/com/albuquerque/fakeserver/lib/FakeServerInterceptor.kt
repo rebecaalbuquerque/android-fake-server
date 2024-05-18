@@ -19,8 +19,15 @@ class FakeServerInterceptor : Interceptor {
                 .protocol(okhttp3.Protocol.HTTP_1_1)
                 .addHeader("content-type", "application/json")
 
+            val delay = request.header(FakeServer.HEADER_DELAY)?.toLongOrNull() ?: 0
+            val statusCode = request.header(FakeServer.HEADER_STATUS_CODE)?.toIntOrNull() ?: 200
+
+            if (delay > 0) {
+                Thread.sleep(delay)
+            }
+
             if (data != null) {
-                response.code(200)
+                response.code(statusCode)
                     .message("OK")
                     .body(ResponseBody.create(MediaType.get("application/json"), data))
                     .build()
