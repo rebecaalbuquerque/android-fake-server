@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fake Server</string>
+    <string name="loading">Carregando…</string>
 </resources>

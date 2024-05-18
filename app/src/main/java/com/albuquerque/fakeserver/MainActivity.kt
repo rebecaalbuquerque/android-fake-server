@@ -30,9 +30,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchData() {
         disposable.add(
-            repository.fetchFakeLoremIpsum()
+            repository.fetchFakeLoremIpsum(delay = 2500)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { binding?.fakeServerResponse?.text = getString(R.string.loading) }
                 .subscribe({ response ->
                     binding?.fakeServerResponse?.text = formatJson(response.string())
                 }, { throwable ->
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             repository.fetchLoremIpsum()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { binding?.fakeServerResponse?.text = getString(R.string.loading) }
                 .subscribe({ response ->
                     binding?.realServerResponse?.text = formatJson(response.string())
                 }, { throwable ->

@@ -7,8 +7,11 @@ class MyRepository(
     private val apiService: MyApiService
 ) {
 
-    fun fetchFakeLoremIpsum(): Single<ResponseBody> {
-        return apiService.getFakeLoremIpsum()
+    fun fetchFakeLoremIpsum(
+        delay: Int? = null,
+        statusCode: String? = null
+    ): Single<ResponseBody> {
+        return apiService.getFakeLoremIpsum(delay, statusCode)
     }
 
     fun fetchLoremIpsum(): Single<ResponseBody> {
