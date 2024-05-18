@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.rebecaalbuquerque"
-version = "1.0.0"
+version = "1.0.1"
 
 apply(from = rootProject.file("publish.gradle.kts"))
 
@@ -49,7 +49,6 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 artifactId = project.name
-
                 artifact("${layout.buildDirectory}/outputs/aar/${project.name}-release.aar")
 
                 pom {
