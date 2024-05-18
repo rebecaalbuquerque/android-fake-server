@@ -1,4 +1,5 @@
 import java.io.ByteArrayOutputStream
+import java.net.URLEncoder
 
 tasks.register("gitTag") {
     doLast {
@@ -39,7 +40,7 @@ tasks.register("createGitHubRelease") {
               "tag_name": "$tagName",
               "target_commitish": "master",
               "name": "$tagName",
-              "body": "$description",
+              "body": "${URLEncoder.encode(description, "UTF-8")}",
               "draft": false,
               "prerelease": false
             }
