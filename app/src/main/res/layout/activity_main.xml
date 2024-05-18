@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="14">
+
+    <TextView
+        android:id="@+id/fakeServerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#969595"
+        android:gravity="center"
+        android:text="Fake Server Title"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/fakeServerResponse"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:gravity="start|center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="16sp"
+        tools:text="Fake Server Response" />
+
+    <TextView
+        android:id="@+id/realServerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#969595"
+        android:gravity="center"
+        android:text="Real Server Title"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/realServerResponse"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:gravity="start|center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="16sp"
+        tools:text="Real Server Response" />
+
+</LinearLayout>
