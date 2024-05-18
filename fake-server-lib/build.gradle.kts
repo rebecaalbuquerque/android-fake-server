@@ -7,6 +7,8 @@ plugins {
 group = "com.github.rebecaalbuquerque"
 version = "1.0.0"
 
+apply(from = rootProject.file("publish.gradle.kts"))
+
 android {
     namespace = "com.albuquerque.fakeserver.lib"
     compileSdk = 34
