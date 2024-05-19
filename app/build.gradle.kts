@@ -38,6 +38,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
 }
 
 dependencies {
