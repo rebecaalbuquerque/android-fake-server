@@ -50,7 +50,6 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 artifactId = "fake-server"
-                artifact("${layout.buildDirectory}/outputs/aar/${project.name}-release.aar")
 
                 pom {
                     name.set("FakeServer")
