@@ -33,16 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-
-    java {
-        toolchain {
-            languageVersion.set(JavaLanguageVersion.of(17))
-        }
-    }
 }
 
 dependencies {
+    implementation(libs.material)
     implementation(libs.retrofit)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
