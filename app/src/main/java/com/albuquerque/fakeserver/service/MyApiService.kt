@@ -11,7 +11,7 @@ interface MyApiService {
     @GET("fake-server/lorem-ipsum")
     fun getFakeLoremIpsum(
         @Header(FakeServer.HEADER_DELAY) delay: Int? = null,
-        @Header(FakeServer.HEADER_STATUS_CODE) statusCode: String? = null
+        @Header(FakeServer.HEADER_STATUS_CODE) statusCode: Int? = null
     ): Single<ResponseBody>
 
     @GET("e2ef4a32-3d7f-405f-af3b-76dbc100b030")

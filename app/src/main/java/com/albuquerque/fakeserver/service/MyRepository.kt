@@ -9,7 +9,7 @@ class MyRepository(
 
     fun fetchFakeLoremIpsum(
         delay: Int? = null,
-        statusCode: String? = null
+        statusCode: Int? = null
     ): Single<ResponseBody> {
         return apiService.getFakeLoremIpsum(delay, statusCode)
     }
