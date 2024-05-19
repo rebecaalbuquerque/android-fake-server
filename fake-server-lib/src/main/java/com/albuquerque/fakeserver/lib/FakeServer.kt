@@ -24,8 +24,13 @@ object FakeServer {
         }
     }
 
-    fun registerResponse(endpoint: String, jsonResponse: String) {
-        responses[endpoint] = jsonResponse
+    fun registerResponse(endpoint: String, response: String) {
+        val formattedEndpoint = if (!endpoint.startsWith("/fake-server/")) {
+            "/fake-server/$endpoint"
+        } else {
+            endpoint
+        }
+        responses[formattedEndpoint] = response
     }
 
     fun getResponse(url: String): String? {
