@@ -2,7 +2,7 @@ import java.io.ByteArrayOutputStream
 
 tasks.register("createGitHubRelease") {
     doLast {
-        val version = project.version.toString()
+        val version = project.findProperty("releaseVersion")?.toString() ?: throw GradleException("releaseVersion property is not set")
         val githubToken = System.getenv("PUBLISH_TOKEN")
 
         if (githubToken.isNullOrBlank()) {
